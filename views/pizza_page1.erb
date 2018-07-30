@@ -1,0 +1,44 @@
+<html>
+   <head>
+        <title>Yucky bucket</title>
+        <script src="/js/pizza.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/random.css">
+   </head>
+   <body background="images/pizza5.jpg" align="middle">
+    <center>
+    <form method="post" action="/pizzy">
+    <h2>Select your meats<h2>
+    <% meats.each do |meat|%>
+        <input type="checkbox" name="thingy1[]" value="<%= meat %>"><%= meat.capitalize %><br> 
+    <%end%>
+    <br>
+    <h2>Select your cheeses<h2>
+    <%cheese.each do |cheeese|%>
+    <input type="checkbox" name="thingy2[]" value="<%= cheeese %>"><%=cheeese.capitalize %><br>
+    <%end%>
+    <br>
+    <h2>Select your veggies<h2>
+    <%veggies.each do |vegg|%>
+    <input type="checkbox" name="thingy3[]" value="<%= vegg %>"><%=vegg.capitalize %><br>
+    <%end%>
+    <br>
+    <h2>Select your sauce<h2>
+    <%sauce.each do |sawce|%>
+    <input type="checkbox" name="thingy4[]" value="<%=sawce%>"><%=sawce.capitalize%><br>
+    <%end%>
+    <br>
+    <h2> Select the size<h2>
+    <%size.each do |syze|%>
+    <input type="checkbox" name="thingy5[]" value="<%=syze%>"><%=syze.capitalize%><br>
+    <%end%>
+    <input type="submit" value="submit">
+    </form>
+    
+
+
+
+
+    </center>
+
+   </body>
+   </html>
