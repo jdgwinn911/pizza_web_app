@@ -1,38 +1,67 @@
 <html>
    <head>
-        <title>Yucky bucket</title>
+        <title>Pappy's Pizza</title>
         <script src="/js/pizza.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/random.css">
+        <link rel="stylesheet" type="text/css" href="css/pizza.css">
    </head>
-   <body background="images/pizza5.jpg" align="middle">
+   <body background="images/pizza7.jpg" align="middle">
+        <p>what time could it be?</p>
+        <div id="demogorgon">
+        
+        <button onclick="funkyButton()">The time is.</button>
+        </div>
+
+        <div class="topnav">
+         <a  href='/'>Home</a>
+         <a class="active" href='/pizza_page1'>Order</a>
+         <a href="#about">About</a>
+    </div>
     <center>
     <form method="post" action="/pizzy">
+     <div class="boxy">
     <h2>Select your meats<h2>
     <% meats.each do |meat|%>
-        <input type="checkbox" name="thingy1[]" value="<%= meat %>"><%= meat.capitalize %><br> 
+    <input type="checkbox" name="thingy1[]" value="<%= meat %>"><%= meat.capitalize %><br> 
     <%end%>
+    </div>
     <br>
+    <div class="boxy1">
     <h2>Select your cheeses<h2>
     <%cheese.each do |cheeese|%>
     <input type="checkbox" name="thingy2[]" value="<%= cheeese %>"><%=cheeese.capitalize %><br>
     <%end%>
+    </div>
     <br>
+    <div class="boxy2">
     <h2>Select your veggies<h2>
     <%veggies.each do |vegg|%>
     <input type="checkbox" name="thingy3[]" value="<%= vegg %>"><%=vegg.capitalize %><br>
     <%end%>
+    </div>
     <br>
+    <div class="boxy3">
     <h2>Select your sauce<h2>
     <%sauce.each do |sawce|%>
     <input type="checkbox" name="thingy4[]" value="<%=sawce%>"><%=sawce.capitalize%><br>
     <%end%>
+    </div>
     <br>
+    <div class="boxy4">
     <h2> Select the size<h2>
     <%size.each do |syze|%>
-    <input type="checkbox" name="thingy5[]" value="<%=syze%>"><%=syze.capitalize%><br>
+    <input type="radio" name="thingy5[]" value="<%=syze%>"><%=syze.capitalize%><br>
     <%end%>
+    </div>
     <input type="submit" value="submit">
     </form>
+    <div class="pooper">
+    <%=pizza.capitalize%>
+    <br>
+    <%=price.capitalize%>
+
+
+    </div>
+ <%# <%pizzaria%> 
     
 
 
@@ -41,4 +70,4 @@
     </center>
 
    </body>
-   </html>
+</html>

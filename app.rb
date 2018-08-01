@@ -2,43 +2,94 @@ require 'sinatra'
 require_relative "pizza app.rb"
  enable :sessions
 get '/' do
- meats = session[:meats] || meats()
- meat_price = session[:meat_price] || meat_price()
- cheese = session[:cheese] || cheese()
- cheese_price = session[:cheese_price] || cheese_price()
- veggies = session[:veggies] || veggies()
- veggies_price = session[:veggies_price] || veggies_price()
- sauce = session[:sauce] || sauce()
- sauce_price = session[:sauce_price] || sauce_price()
- size = session[:size] || size()
- size_price = session[:size_price] || size_price()
- side_orders = session[:side_orders] || side_orders()
- side_orders_price = session[:side_orders_price] || side_orders_price()
-
- puts "#{session[:meats]}"
- puts "in get / do size is #{size}"
-
-  erb :pizza_page1, locals:{meats: meats, meat_price: meat_price, size: size}
+  erb :pizza_home
 end
-
-post '/pizzy' do
-  puts "in post pizzy params are #{params}"
-  meats = params[:thingy]
-  meat_price = params[:thingy]
-  session[:meats] = params["thingy1"]
-  session[:meat_price] = meat_price()
-  session[:cheese] = cheese()
-  session[:cheese_price] = cheese_price()
-  session[:veggies] = veggies()
-  session[:veggies_price] = veggies_price()
-  session[:sauce] = sauce()
-  session[:size] = size()
-  puts "#{session[:size]} is session size in post pizzy"
-  session[:side_orders] = side_orders()
-  p meat_price()
-  # p session
-
+post '/pizzyhome' do
+ 
 
   redirect '/'
 end
 
+get '/pizza_page1' do
+  meats =  meats()
+  cheese = cheese()
+  veggies =  veggies()
+  sauce = sauce()
+  size =  size()
+  price = session[:price] || ""
+  pizza = session[:pizza] || ""
+
+ 
+   erb :pizza_page1, locals:{meats: meats,  cheese: cheese, veggies: veggies, sauce: sauce, size: size, pizza: pizza, price: price}
+
+  
+end
+
+post '/pizzy' do
+  # puts "in post pizzy params are #{params}"
+  meats = params[:thingy]
+  meat_price = params[:thingy]
+  
+  doop = params[:thingy1] || []
+
+  temp_pizza = "here's your, "
+  price = "that'll be, "
+  temp_price = 0
+  doop.each do |v|
+    temp_pizza += "#{v}, "
+    meaty = meats().index(v)
+    actual_price = meat_price()[meaty]
+    temp_price += actual_price
+  end
+
+  doop_cheese = params[:thingy2] || []
+  doop_cheese.each do |v|
+    temp_pizza += "#{v}, "
+    cheesy = cheese().index(v)
+    actual_price = cheese_price()[cheesy]
+    temp_price += actual_price
+  end
+
+  doop_veggies = params[:thingy3] || []
+  doop_veggies.each do |v|
+    temp_pizza += "#{v}, "
+    veggy = veggies().index(v)
+    actual_price = veggies_price()[veggy]
+    temp_price += actual_price
+  end
+
+  doop_sauce = params[:thingy4] || []
+  doop_sauce.each do |v|
+    temp_pizza += "#{v} sauce, "
+    saucy= sauce().index(v)
+    actual_price = sauce_price()[saucy]
+    temp_price += actual_price
+  end
+
+  doop_size = params[:thingy5] || []
+  doop_size.each do |v|
+    temp_pizza += "#{v} pizza."
+    sizey = size().index(v)
+    actual_price = size_price()[sizey]
+    temp_price += actual_price
+  end
+  price += temp_price.to_s
+
+  session[:price] = price
+  session[:pizza] = temp_pizza
+
+
+
+
+
+  redirect'/pizza_page1' 
+ 
+end
+
+get '/pizza_page1' do
+  erb :pizza_about
+end
+
+post '/pizza_about' do 
+  redirect 'pizza_about'
+end
