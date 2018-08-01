@@ -86,8 +86,9 @@ post '/pizzy' do
  
 end
 
-get '/pizza_page1' do
+get '/pizzy_about' do
   erb :pizza_about
+  
 end
 
 post '/pizza_about' do 
