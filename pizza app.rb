@@ -2,7 +2,7 @@ def meats()
  ["pepperoni", "sausage", "ham", "bacon", "chicken", "beef-wellington"]
 end
 def meat_price()
-    [0.25, 0.50, 0.35, 0.80, 1.00, 0.99  ]
+    [1.25, 1.50, 3.35, 0.80, 1.00, 5.99  ]
 end
 def cheese()
     cheese = ["pepperjack", "colbyjack", "parmesan", "mozzerella", "blue cheese", "nacho"]
@@ -16,21 +16,21 @@ def veggies()
     veggies[0..5]
 end
 def veggies_price()
-    veggies = [0.50, 1.00, 2.00, 3.00, 2.00, 1.00]
+    veggies = [2.50, 3.00, 2.00, 3.00, 2.00, 1.00]
 end
 def sauce()
-    sauce = ["tomato", "white", "ranch", "mayo"] #ewww mayo lmao
-    sauce[0..3]
+    sauce = ["tomato", "white", "ranch"] #ewww mayo lmao
+    sauce[0..2]
 end
 def sauce_price()
-    sauce = [1.00, 0.50, 2.00, 0.15]
+    sauce = [2.00, 2.50, 3.00, 2.15]
 end
 def size()
     size = ["10 inch", "25 inch", "66 inch"]
     size[0..2]
 end 
 def size_price()
-    size = [10.00, 32.00, 65.25]
+    size = [11.00, 34.00, 65.25]
 end
 # def side_orders()
 #     sides = ["wings", "breadsticks", "soup", "cheesesticks"]
@@ -53,14 +53,14 @@ def pizzaria()
     # puts "what sides do you want with that?"; print "#{side_orders()} : "; sides = $stdin.gets.chomp.to_i; cls
     price = 0
 
-    # puts "do you wnat it delivered y/n?"
-    #     answer = gets.chomp
-    # if answer == "y" ; puts " how many miles away is the foods destination?"; miles = gets.chomp.to_i; cls
-    #      if miles >= 50 
-    #          (price + 5) + (0.40 * miles) 
-    #      else; price + 5
-    #      end
-    #  end
+    puts "do you wnat it delivered y/n?"
+        answer = gets.chomp
+    if answer == "y" ; puts " how many miles away is the foods destination?"; miles = gets.chomp.to_i; cls
+         if miles >= 50 
+             (price + 5) + (0.40 * miles) 
+         else; price + 5
+         end
+     end
      total = price * 1.16; puts "that will be $#{total.round(2)}, after tax."
     #  price.split('')
     price += meat_price[meats - 1] + cheese_price[cheese - 1] + veggies_price[veggies - 1] + sauce_price[sauce - 1] + size_price[size - 1] + side_orders_price[sides - 1]
@@ -68,3 +68,6 @@ def pizzaria()
 #     puts "enjoy your #{size[size - 1]}, #{meats[meats - 1]}, #{cheese[cheese - 1]}, #{veggies[veggies - 1]}, #{sauce[sauce - 1]} pizza"; puts "enjoy your side of #{sides}"
  end
 # pizzaria()
+
+ 
+    

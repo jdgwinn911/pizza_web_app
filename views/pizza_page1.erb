@@ -14,19 +14,24 @@
         <div class="topnav">
          <a  href='/'>Home</a>
          <a class="active" href='/pizza_page1'>Order</a>
-         <a  href="/pizzy_about">About</a>
+         <a href='/pizzy_about'>About</a>
     </div>
     <center>
     <form method="post" action="/pizzy">
      <div class="boxy">
     <h2>Select your meats<h2>
-    <% meats.each do |meat|%>
+    <img onmouseover="big(this)" onmouseout="small(this)" border="0" src="images/cartoon_pizza.jpg" alt="cartoon_pizza" width="32" height="32">
+    <br>
+
+    <% meats.each do |meat|%> 
     <input type="checkbox" name="thingy1[]" value="<%= meat %>"><%= meat.capitalize %><br> 
     <%end%>
     </div>
     <br>
     <div class="boxy1">
     <h2>Select your cheeses<h2>
+    <img onmouseover="big(this)" onmouseout="small(this)" border="0" src="images/pepperjack.jpg" alt="cheese" width="32" height="32">
+    <br>
     <%cheese.each do |cheeese|%>
     <input type="checkbox" name="thingy2[]" value="<%= cheeese %>"><%=cheeese.capitalize %><br>
     <%end%>
@@ -34,6 +39,8 @@
     <br>
     <div class="boxy2">
     <h2>Select your veggies<h2>
+    <img onmouseover="big(this)" onmouseout="small(this)" border="0" src="images/habanero1.jpg" alt="pepper" width="32" height="32">
+    <br>
     <%veggies.each do |vegg|%>
     <input type="checkbox" name="thingy3[]" value="<%= vegg %>"><%=vegg.capitalize %><br>
     <%end%>
@@ -41,6 +48,8 @@
     <br>
     <div class="boxy3">
     <h2>Select your sauce<h2>
+    <img onmouseover="big(this)" onmouseout="small(this)" border="0" src="images/sauce.jpg" alt="sauce" width="32" height="32">
+    <br>
     <%sauce.each do |sawce|%>
     <input type="checkbox" name="thingy4[]" value="<%=sawce%>"><%=sawce.capitalize%><br>
     <%end%>
@@ -48,11 +57,23 @@
     <br>
     <div class="boxy4">
     <h2> Select the size<h2>
+    <img onmouseover="big(this)" onmouseout="small(this)" border="0" src="images/slide4.jpg" alt="slide" width="32" height="32">
+    <br>
     <%size.each do |syze|%>
     <input type="radio" name="thingy5[]" value="<%=syze%>"><%=syze.capitalize%><br>
     <%end%>
+    </div><br>
+    <div class="boxy5">
+    <h2> address<h2>
+    <input type="text" name="thingy6" placeholder="state">
+    <input type="text" name="thingy6" placeholder="city">
+    <input type="text" name="thingy6" placeholder="street">
+    <input type="number" name="thingy6" placeholder="home phone number"><br><br>
+    <h3>would you like it delivered?<h3>
+    <input type="radio" name="thingy6" value="yes" >yes<p></p>
+     <input type="radio" name="thingy6" value="no" >no<p></p>
     </div>
-    <input type="submit" value="submit">
+    <input type="submit" value="submit" onclick="myFunc()" >
     </form>
     <div class="pooper">
     <%=pizza.capitalize%>

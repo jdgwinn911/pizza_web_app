@@ -32,8 +32,8 @@ post '/pizzy' do
   
   doop = params[:thingy1] || []
 
-  temp_pizza = "here's your, "
-  price = "that'll be, "
+  temp_pizza = " Your, "
+  price = "With delivery and tip will be, "
   temp_price = 0
   doop.each do |v|
     temp_pizza += "#{v}, "
