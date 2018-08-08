@@ -1,0 +1,95 @@
+<html>
+    <head>
+        <title>Pappy's Pizza</title>
+        <script src="/js/pizza.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/pizza.css">
+        <font color="yellow"><h1><p>Welcome to Pappy's Pizza
+        </p><h1></font>
+   </head>
+   
+   <body background="images/pizza7.jpg" align="middle">
+   <center>
+   <form method="post" action="pizzy_confirm">
+   <div class="confirm_size">
+		<%= size %><br>
+		<label for="yes">Yes</label>
+		<input type="radio" name="confirm_size" value="yes" checked>
+		<label for="no">No</label>
+		<input type="radio" name="confirm_size" value="no">
+   </div>
+
+   <div class="confirm_topping1">
+        <% meats.each_with_index do |meat, pick| %><br>
+		<%= meat.capitalize %><br>
+		<label for="yes">Yes</label>
+		<input type="radio" name="confirm_meat<%=pick%>" value="yes" checked>
+		<label for="no">No</label>
+		<input type="radio" name="confirm_meat<%=pick%>" value="no">
+        <%end%>
+	</div>
+
+    <div class="confirm_toppings2">
+        <% cheese.each_with_index do |cheese, pick| %><br>
+		<%= cheese.capitalize %><br>
+		<label for="yes">Yes</label>
+		<input type="radio" name="confirm_cheese<%=pick%>" value="yes" checked>
+		<label for="no">No</label>
+		<input type="radio" name="confirm_cheese<%=pick%>" value="no">
+        <%end%>
+   </div>
+
+    <div class="confirm_toppings3">
+        <% veggies.each_with_index do |veggies, pick| %><br>
+		<%= veggies.capitalize %><br>
+		<label for="yes">Yes</label>
+		<input type="radio" name="confirm_veggies<%=pick%>" value="yes" checked>
+		<label for="no">No</label>
+		<input type="radio" name="confirm_veggies<%=pick%>" value="no">
+        <%end%>
+    </div>
+
+    <div class="confirm_toppings4">        
+        <% sauce.each_with_index do |sauce, pick| %><br>
+		<%= sauce.capitalize %><br>
+		<label for="yes">Yes</label>
+		<input type="radio" name="confirm_sauce<%=pick%>" value="yes" checked>
+		<label for="no">No</label>
+		<input type="radio" name="confirm_sauce<%=pick%>" value="no">
+        <%end%>
+    </div>
+
+    <div class="submit" name="subby">
+    <input type="submit" value="confirm order">
+    </div>   
+    <%meats.each do |ogmeat|%>
+    <input type="hidden" name="ogmeats[]" value="<%=ogmeat%>" >
+    <%end%>
+
+    <%cheese.each do |ogcheese|%>
+    <input type="hidden" name="ogcheese[]" value="<%=ogcheese%>" >
+    <%end%>
+
+    <%veggies.each do |ogveggies|%>
+    <input type="hidden" name="ogveggies[]" value="<%=ogveggies%>" >
+    <%end%>
+
+    <%sauce.each do |ogsauce|%>
+    <input type="hidden" name="ogsauce[]" value="<%=ogsauce%>" >
+    <%end%>
+   
+
+    
+    <input type="hidden" name="miles" value="<%=miles%>" >
+    <input type="hidden" name="size" value="<%=size%>">
+    
+
+
+
+
+   </form>
+
+
+    </center>
+
+   </body>
+</html>

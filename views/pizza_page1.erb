@@ -15,6 +15,7 @@
          <a  href='/'>Home</a>
          <a class="active" href='/pizza_page1'>Order</a>
          <a href='/pizzy_about'>About</a>
+         
     </div>
     <center>
     <form method="post" action="/pizzy">
@@ -24,7 +25,7 @@
     <br>
 
     <% meats.each do |meat|%> 
-    <input type="checkbox" name="thingy1[]" value="<%= meat %>"><%= meat.capitalize %><br> 
+    <input type="checkbox" name="thingy1[]"  value="<%= meat %>"><%= meat.capitalize %><br> 
     <%end%>
     </div>
     <br>
@@ -56,22 +57,27 @@
     </div>
     <br>
     <div class="boxy4">
-    <h2> Select the size<h2>
-    <img onmouseover="big(this)" onmouseout="small(this)" border="0" src="images/slide4.jpg" alt="slide" width="32" height="32">
+    <h2> Select the size<h2>   
     <br>
     <%size.each do |syze|%>
-    <input type="radio" name="thingy5[]" value="<%=syze%>"><%=syze.capitalize%><br>
+    <input type="radio" name="thingy5[]"  value="<%=syze%>"><%=syze.capitalize%><br>
     <%end%>
     </div><br>
-    <div class="boxy5">
-    <h2> address<h2>
-    <input type="text" name="thingy6" placeholder="state">
-    <input type="text" name="thingy6" placeholder="city">
-    <input type="text" name="thingy6" placeholder="street">
-    <input type="number" name="thingy6" placeholder="home phone number"><br><br>
-    <h3>would you like it delivered?<h3>
-    <input type="radio" name="thingy6" value="yes" >yes<p></p>
-     <input type="radio" name="thingy6" value="no" >no<p></p>
+    
+    
+
+    <div class="boxy5" id="myDIV">
+    <h2> Delivery?<h2>
+    <input type="text" name="thingy12" placeholder="city">
+    <input type="text" name="thingy13" placeholder="street"><br>
+    <label for="miles">How many miles?(if delivery)</label><br>
+     <input type="number" name="thingythingy" placeholder="enter number of miles"><br>
+     </div>
+    <br>
+    <div class="boxy6"><br>
+    <h2>  Carryout?<h2>
+    
+     <input type="radio" name="thingy6" id="myDIV" value="no" ><br>
     </div>
     <input type="submit" value="submit" onclick="myFunc()" >
     </form>

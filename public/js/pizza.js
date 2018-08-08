@@ -53,3 +53,18 @@ document.getElementById("clocky").innerHTML = days + "d " + hours + "h "
     document.getElementById("clocky").innerHTML = "EXPIRED";
   }
 }, 1000);
+
+
+function myFunction() {
+    var x = document.getElementById("myDIV");
+    x.style.display = "block";
+    
+}
+
+
+function mFuunction() {
+    var x = document.getElementById("myDIVV")
+    x.style.display = "block";
+    
+
+}
